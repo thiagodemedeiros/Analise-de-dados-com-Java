@@ -34,6 +34,11 @@ class PesquisaTimeQueMaisVenceu {
         public int getSoccerTeamInVisitGols() {
             return soccerTeamInVisitGols;
         }
+
+        public String toString() {
+            return soccerTeamInHome + " " + soccerTeamInHomeGols + " x " +
+                   soccerTeamInVisitGols + " " + soccerTeamInVisit;
+        }
     }
 
     public PesquisaTimeQueMaisVenceu(){
@@ -45,14 +50,18 @@ class PesquisaTimeQueMaisVenceu {
             while ((line = br.readLine()) != null) {
                 String[] lineContent = line.split(",");
                 String soccerTeamInHome = lineContent[4];
-                String soccerTeamInHomeGols = lineContent[12];
+                int soccerTeamInHomeGols = Integer.parseInt(lineContent[12].replace("\"", "").trim());
                 String soccerTeamInVisit = lineContent[5];
-                String soccerTeamInVisitGols = lineContent[3];
-                SETSoccerPlayerNames.add(player);
+                int soccerTeamInVisitGols = Integer.parseInt(lineContent[13].replace("\"", "").trim());
+                SoccerGame soccerGame = new SoccerGame(soccerTeamInHome, soccerTeamInHomeGols,
+                                                       soccerTeamInVisit, soccerTeamInVisitGols);
+                LISTSoccerGames.add(soccerGame);
             }
         }
         catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
+
+        System.out.println(LISTSoccerGames.get(0));
     }
 }
