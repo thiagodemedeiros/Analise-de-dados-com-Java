@@ -64,13 +64,13 @@ class PesquisaDeGols {
         }
 
         if (changeSearch == 0) {
-            System.out.println("🏆 Jogador com mais gols: " + nameSoccerPLayer + " - " + soccerPlayerGols + " gols");
+            System.out.println("Jogador com mais gols: " + nameSoccerPLayer + " - " + soccerPlayerGols + " gols");
         }
         if (changeSearch == 1) {
-            System.out.println("🏆 Jogador com mais gols contra: " + nameSoccerPLayer + " - " + soccerPlayerGols + " gols");
+            System.out.println("Jogador com mais gols contra: " + nameSoccerPLayer + " - " + soccerPlayerGols + " gols");
         }
         if (changeSearch == 2) {
-            System.out.println("🏆 Jogador com mais gols de penalty: " + nameSoccerPLayer + " - " + soccerPlayerGols + " gols");
+            System.out.println("Jogador com mais gols de penalty: " + nameSoccerPLayer + " - " + soccerPlayerGols + " gols");
         }
     }
 }
