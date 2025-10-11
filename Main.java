@@ -7,5 +7,7 @@ public class Main {
 
       // new PesquisaDeCartoes(1);
       // new PesquisaDeCartoes(2);
+
+      new PesquisaEstadoComMenosJogos();
   }
 }
