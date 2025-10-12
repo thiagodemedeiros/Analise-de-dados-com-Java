@@ -1,3 +1,5 @@
+package service;
+
 import model.SoccerGame;
 
 import java.io.BufferedReader;
@@ -6,9 +8,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class PesquisaTimeQueMaisVenceu {
+public class PesquisaTimeQueMaisVenceu {
     public PesquisaTimeQueMaisVenceu(){
-        String path = "campeonato-brasileiro-full.csv";
+        String path = "repository/campeonato-brasileiro-full.csv";
         List<SoccerGame> LISTSoccerGames = new ArrayList<>();
         List<String> LISTSoccerTeamWin = new ArrayList<>();
 

@@ -7,8 +7,25 @@
     <list default="true" id="77b418f4-93ca-49fc-96ae-acbf8314b5e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PesquisaDeCartoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/PesquisaDeCartoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PesquisaDeCartoes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PesquisaDeGols.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PesquisaEstadoComMenosJogos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PesquisaJogoComMaisGols.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PesquisaTimeQueMaisVenceu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/campeonato-brasileiro-cartoes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/campeonato-brasileiro-estatisticas-full.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/campeonato-brasileiro-full.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/campeonato-brasileiro-gols.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/PesquisaDeCartoes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/PesquisaDeGols.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/PesquisaEstadoComMenosJogos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/PesquisaJogoComMaisGols.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/PesquisaTimeQueMaisVenceu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/campeonato-brasileiro-cartoes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/campeonato-brasileiro-estatisticas-full.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/campeonato-brasileiro-full.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Analise-de-dados-com-Java/campeonato-brasileiro-gols.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

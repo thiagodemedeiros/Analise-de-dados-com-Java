@@ -1,12 +1,14 @@
+package service;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.*;
 
-class PesquisaEstadoComMenosJogos {
+public class PesquisaEstadoComMenosJogos {
     public PesquisaEstadoComMenosJogos(){
-        String path = "campeonato-brasileiro-full.csv";
+        String path = "repository/campeonato-brasileiro-full.csv";
         List<String> LISTSoccerPlaces = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {

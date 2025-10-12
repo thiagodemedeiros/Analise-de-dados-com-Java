@@ -1,3 +1,5 @@
+package service;
+
 import model.soccerPlayerCard;
 
 import java.io.BufferedReader;
@@ -6,9 +8,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class PesquisaDeCartoes {
+public class PesquisaDeCartoes {
     public PesquisaDeCartoes(String changeSearch){
-        String path = "campeonato-brasileiro-cartoes.csv";
+        String path = "repository/campeonato-brasileiro-cartoes.csv";
         List<soccerPlayerCard> LISTSoccerPlayerNames = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
