@@ -1,49 +1,16 @@
+import model.SoccerGame;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 class PesquisaTimeQueMaisVenceu {
-    public class SoccerGame {
-        private String soccerTeamInHome;
-        private int soccerTeamInHomeGols;
-        private String soccerTeamInVisit;
-        private int soccerTeamInVisitGols;
-
-        public SoccerGame(String soccerTeamInHome, int soccerTeamInHomeGols,
-                          String soccerTeamInVisit, int soccerTeamInVisitGols)
-        {
-            this.soccerTeamInHome = soccerTeamInHome;
-            this.soccerTeamInHomeGols = soccerTeamInHomeGols;
-            this.soccerTeamInVisit = soccerTeamInVisit;
-            this.soccerTeamInVisitGols = soccerTeamInVisitGols;
-        }
-
-        public String getSoccerTeamInHome() {
-            return soccerTeamInHome;
-        }
-
-        public String getSoccerTeamInVisit() {
-            return soccerTeamInVisit;
-        }
-
-        public int getSoccerTeamInHomeGols() {
-            return soccerTeamInHomeGols;
-        }
-
-        public int getSoccerTeamInVisitGols() {
-            return soccerTeamInVisitGols;
-        }
-
-        public String toString() {
-            return soccerTeamInHome + " " + soccerTeamInHomeGols + " x " +
-                   soccerTeamInVisitGols + " " + soccerTeamInVisit;
-        }
-    }
-
     public PesquisaTimeQueMaisVenceu(){
         String path = "campeonato-brasileiro-full.csv";
         List<SoccerGame> LISTSoccerGames = new ArrayList<>();
+        List<String> LISTSoccerTeamWin = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = br.readLine();
@@ -62,6 +29,23 @@ class PesquisaTimeQueMaisVenceu {
             System.out.println("ERROR: " + e);
         }
 
-        System.out.println(LISTSoccerGames.get(0));
+        for (SoccerGame game : LISTSoccerGames) {
+            if (game.getSoccerTeamInHomeGols() > game.getSoccerTeamInVisitGols()) {
+                LISTSoccerTeamWin.add(game.getSoccerTeamInHome());
+            }
+            else if (game.getSoccerTeamInVisitGols() > game.getSoccerTeamInHomeGols()) {
+                LISTSoccerTeamWin.add(game.getSoccerTeamInVisit());
+            }
+        }
+
+        Map<String, Long> countTeamWinners = LISTSoccerTeamWin.stream()
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+
+        Optional<Map.Entry<String, Long>> teamWithMoreWins = countTeamWinners.entrySet().stream()
+                .max(Map.Entry.comparingByValue());
+
+        teamWithMoreWins.ifPresent(entry ->
+                System.out.println("Time com mais vitórias: " + entry.getKey() + " (" + entry.getValue() + " vitorias)")
+        );
     }
 }
