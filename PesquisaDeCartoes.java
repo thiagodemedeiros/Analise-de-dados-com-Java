@@ -1,69 +1,53 @@
+import model.soccerPlayerCard;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 class PesquisaDeCartoes {
-    public PesquisaDeCartoes(int changeSearch){
+    public PesquisaDeCartoes(String changeSearch){
         String path = "campeonato-brasileiro-cartoes.csv";
-        Set<String> SETSoccerPlayerNames = new HashSet<>();
-        Map<String, Integer> MAPSoccerPlayerCards = new HashMap<>();
+        List<soccerPlayerCard> LISTSoccerPlayerNames = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] lineContent = line.split(",");
                 String player = lineContent[4];
-                SETSoccerPlayerNames.add(player);
+                String cardColumn = lineContent[3].replace("\"", "").trim().toLowerCase();
+                soccerPlayerCard soccerPlayerCard = new soccerPlayerCard(player, cardColumn);
+                LISTSoccerPlayerNames.add(soccerPlayerCard);
             }
         }
         catch (IOException e) {
             System.out.println("ERROR: " + e);
         }
 
-        for (String name : SETSoccerPlayerNames) {
-            int counterCards = 0;
+        if (changeSearch.equals("Cartão Amarelo")) {
+            Map<String, Long> yellowCardCount = LISTSoccerPlayerNames.stream()
+                    .filter(c -> c.getCard().equals("amarelo"))
+                    .collect(Collectors.groupingBy(soccerPlayerCard::getSoccerPlayerName, Collectors.counting()));
 
-            try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-                String line = br.readLine();
-                while ((line = br.readLine()) != null) {
-                    String[] lineContent = line.split(",");
-                    String player = lineContent[4];
-                    String cardColumn = lineContent[3].replace("\"", "").trim().toLowerCase();
+            Optional<Map.Entry<String, Long>> maxYellow = yellowCardCount.entrySet().stream()
+                    .max(Map.Entry.comparingByValue());
 
-                    if (player.equals(name) && changeSearch == 1 && cardColumn.contains("amarelo")) {
-                        counterCards++;
-                    }
-                    if (player.equals(name) && changeSearch == 2 && cardColumn.contains("vermelho")) {
-                        counterCards++;
-                    }
-                }
-            }
-            catch (IOException e) {
-                System.out.println("ERROR: " + e);
-            }
-
-            MAPSoccerPlayerCards.put(name,counterCards);
+            maxYellow.ifPresent(entry ->
+                    System.out.println("Jogador com mais cartões amarelos: " + entry.getKey() + " - " + entry.getValue() + " cartões"));
         }
 
-        String nameSoccerPLayer = "Player";
-        int soccerPlayerCards = 0;
+        if (changeSearch.equals("Cartão Vermelho")) {
+            Map<String, Long> redCardCount = LISTSoccerPlayerNames.stream()
+                    .filter(c -> c.getCard().equals("vermelho"))
+                    .collect(Collectors.groupingBy(soccerPlayerCard::getSoccerPlayerName, Collectors.counting()));
 
-        for (Map.Entry<String, Integer> entry : MAPSoccerPlayerCards.entrySet()) {
-            String name = entry.getKey();
-            int cards = entry.getValue();
+            Optional<Map.Entry<String, Long>> maxRed = redCardCount.entrySet().stream()
+                    .max(Map.Entry.comparingByValue());
 
-            if (cards > soccerPlayerCards) {
-                soccerPlayerCards = cards;
-                nameSoccerPLayer = name;
-            }
+            maxRed.ifPresent(entry ->
+                    System.out.println("Jogador com mais cartões vermelhos: " + entry.getKey() + " - " + entry.getValue() + " cartões"));
         }
 
-        if (changeSearch == 1) {
-            System.out.println("Jogador com mais Cartões Amarelos: " + nameSoccerPLayer + " - " + soccerPlayerCards + " Cartões");
-        }
-        if (changeSearch == 2) {
-            System.out.println("Jogador com mais Cartões Vermelhos: " + nameSoccerPLayer + " - " + soccerPlayerCards + " Cartões");
-        }
     }
 }

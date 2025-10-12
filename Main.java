@@ -1,23 +1,21 @@
 
 public class Main {
   public static void main(String[] args){
-      new PesquisaTimeQueMaisVenceu();
+      //new PesquisaTimeQueMaisVenceu();
 
-      new PesquisaEstadoComMenosJogos();
+      //new PesquisaEstadoComMenosJogos();
 
       /*int jogadorComMaisGols = 0;
       new PesquisaDeGols(jogadorComMaisGols);
       int jogadorComMaisGolsDeContra = 1;
       new PesquisaDeGols(jogadorComMaisGolsDeContra);
       int jogadorComMaisGolsDePenalti = 2;
-      new PesquisaDeGols(jogadorComMaisGolsDePenalti);
+      new PesquisaDeGols(jogadorComMaisGolsDePenalti);*/
 
-      int jogadoComMaisCartoesAmarelos = 1;
-      new PesquisaDeCartoes(jogadoComMaisCartoesAmarelos);
-      int jogadoComMaisCartoesvermelhor = 2;
-      new PesquisaDeCartoes(jogadoComMaisCartoesvermelhor); */
+      new PesquisaDeCartoes("Cartão Amarelo");
+      new PesquisaDeCartoes("Cartão Vermelho");
 
-      new PesquisaJogoComMaisGols();
+      //new PesquisaJogoComMaisGols();
 
 
   }
